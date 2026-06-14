@@ -1,0 +1,20 @@
+{
+  "name": "user-management-api",
+  "version": "1.0.0",
+  "description": "REST API quản lý người dùng với Node.js, Express, MySQL, Sequelize",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "sqlite3": "^5.1.7",
+    "node-cron": "^3.0.3",
+    "sequelize": "^6.37.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.3"
+  }
+}
