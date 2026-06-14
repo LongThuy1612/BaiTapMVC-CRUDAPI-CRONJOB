@@ -17,8 +17,6 @@ Tổ chức code theo **MVC thuần** — không thêm Service Layer hay Reposit
 
 Dùng **SQLite** thay vì MySQL để không phụ thuộc vào cài đặt DB bên ngoài — phù hợp cho môi trường học.
 
-Cron job viết thẳng trong `src/cron/scheduler.js`, không tách thêm tầng job riêng vì logic đơn giản.
-
 ## Cấu trúc thư mục
 
 ```
