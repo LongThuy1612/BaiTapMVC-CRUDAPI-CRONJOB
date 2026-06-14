@@ -24,21 +24,21 @@ Cron job viết thẳng trong `src/cron/scheduler.js`, không tách thêm tầng
 ```
 src/
 ├── config/
-│   └── database.js          # Khởi tạo Sequelize + SQLite
+│   └── database.js
 ├── models/
-│   └── user.model.js        # Schema + static methods truy vấn DB
+│   └── user.model.js
 ├── controllers/
-│   └── user.controller.js   # Validation + xử lý request/response
+│   └── user.controller.js
 ├── routes/
-│   └── user.route.js        # Khai báo endpoints
+│   └── user.route.js
 ├── cron/
-│   └── scheduler.js         # Cron job mỗi 5 phút
+│   └── scheduler.js
 ├── public/
-│   ├── index.html           # Giao diện web
+│   ├── index.html
 │   ├── style.css
-│   └── users.js             # Gọi API, render UI
-├── app.js                   # Cấu hình Express
-└── server.js                # Entry point
+│   └── users.js
+├── app.js
+└── server.js
 ```
 
 ## Ràng buộc nghiệp vụ
