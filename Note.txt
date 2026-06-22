@@ -1,0 +1,98 @@
+Ngày 14/6
+I/ Sử dụng 
+- /opsx:explore : phát triển ý tưởng
+- /opsx:propose : tạo các tài liệu kế hoạch cho từng phần
+- /opsx:apply : đồng ý code khi kế hoạch hoàn chỉnh
+- /opsx:sync : đồng bộ các thông tin
+- /opsx:archive: hoàn tất
+Quy trình làm việc:
+- Tạo Claude.md:
+- /opsx:explore phát triển ý tưởng
+- Review
+- /opsx:propose tạo các tài liệu kế hoạch cho từng phần
+- Review
+- /opsx:validate kiểm tra 
+- Plan Mode : tạo kế hoạch trước khi code
+- /opsx:apply : Code
+- Code Review
+- Test
+- /opsx:sync : đồng bộ các thông tin
+- /opsx:archive:
+
+II/ Sử dụng Claude Code
+1. Claude.md
+- Bộ não dự án
+
+- Quy trình: Giao task -> kiểm tra (có cơ chế kiểm tra rõ ràng)
+2. .claude
+- Claude.md
+- rules/: quy tắc chi tiết, chia nhỏ Claude.md
+- Nên: 
++ Chạy /init trước - bất cứ khi nào làm việc với folder mới
++ Dùng bullet points và headings ngắn - viết theo kiểu mật độ thông tin cao
++ Đặt những guardrail quan trong nhất lên Đầu file
++ Commit CLAUDE.md gốc vào git - đây là file cấu hình quan trọng, cần version control như code thực
++ Định kỳ review và tỉa bớt - Claude.md là tài liệu sống, không phải viết lại một lần rồi quên
+- Không nên:
++ Dump nguyên style guide hay API docs vào - quá dài, Claude đọc không hiệu quả
++ Dùng @-include file lớn trừ khi thực sự cần thiết - mỗi lần include là tốn token
++ Viết rule mơ hồ kiểu 'hãy viết code tốt' - rule phải cụ thể, đo lường được
++ Để file dài hơn 500 dòng mà không tách ra - lúc đó dùng /rules folder
+- memory.md: Bộ nhớ cá nhân của Claude
++ Tên và thông tin thành viên team
++ Preferency cá nhân
++ Thông tin dự án được nhắc tới
++ Các quyết định kỹ thuật quan trọng
++ Không lưu: API Key/mật khẩu, nội dung quá dài
+- agents/: các sub-agent
++ research.md: tra cứu thông tin
++ review.md: kiểm tra code
++ qaTest.md: Chạy thử
+- skills: các tác vụ có thể tái sử dụng
++ Tạo các việc lặp đi lặp lại
+3. Context Management
+* 
+* Plan Mode:
+- Nên:
++ Bất kỳ task nào phức tạp hơn một thay đổi đơn lẻ
++ Khi build feature mới từ đầu
++ Khi tích hợp với external service (database, payment, API)
++ Khi refactor code lớn
++ Khi bạn chưa chắc approach nào tốt nhất
++ Khi task sẽ ảnh hưởng đến nhiều file cùng lúc
+- Không nên:
++ Sửa lỗi nhỏ, đơn giản
++ Thay đổi text hoặc style nhỏ
++ Task bạn đã làm nhiều lần và biết rõ cách làm
+4. Quản lý các session
+a. Kết thúc
+Trước khi kết thúc, hãy cập nhật Claude.md với:
+- Những gì đã hoàn thành
+- Trạng thái hiện tại của từng phần
+- Bước tiếp theo cần làm
+- Quyết định quan trong & lý do
+b. Bắt đầu session mới
+Đọc Claude.md và cho tôi biết:
+dự án đang ở đâu, bước tiếp theo là gì, và có gì tôi cần chú ý không?
+c. Dùng Plan Mode cho session lớn
+Dựa trên Claude.md và trạng thái hiện tại của project, lên kế hoạch cho session hôm qua
+Ưu tiên nhưng gì và theo thứ tự nào?
+
+Ngày 16/6:
+I/ MVC
+MVC là một dạng tổ chức code giúp dễ bảo trì và mở rộng dễ dàng hơn
+- Model (M): nơi xử lý dữ liệu, chịu trách nhiệm truy vấn thông tin (CRUD)
+- View (V): nơi hiển thị
+- Controller (C): nơi điều hướng dữ liệu (Nó sẽ nhận yêu cầu và điều phối Model xử lý dữ liệu, và đưa sẽ dữ liệu lên View để hiển thị)
+
+II/ Truy vấn MySQL
+Các lệnh tương tự như SQL Server
+Hiện tại thử các lệnh truy vấn thì thấy chưa khác gì
+SELECT `Col_Name`
+FROM `TB_Name`
+(JOIN ... ON...)
+WHERE `DK`
+GROUP BY `TB_Name`
+HAVING `DK`
+ORDER 
+LIMIT
