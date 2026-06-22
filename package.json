@@ -1,20 +1,32 @@
 {
-  "name": "user-management-api",
+  "name": "baitapthem",
   "version": "1.0.0",
-  "description": "REST API quản lý người dùng với Node.js, Express, MySQL, Sequelize",
-  "main": "src/server.js",
+  "description": "",
+  "main": "server.js",
   "scripts": {
-    "start": "node src/server.js",
-    "dev": "nodemon src/server.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon ./src/server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LongThuy1612/BaiTapMVC-CRUDAPI-CRONJOB.git"
+  },
+  "keywords": [
+    "123456"
+  ],
+  "author": "longnt",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LongThuy1612/BaiTapMVC-CRUDAPI-CRONJOB/issues"
+  },
+  "homepage": "https://github.com/LongThuy1612/BaiTapMVC-CRUDAPI-CRONJOB#readme",
   "dependencies": {
-    "dotenv": "^16.4.5",
-    "express": "^4.19.2",
-    "sqlite3": "^5.1.7",
-    "node-cron": "^3.0.3",
-    "sequelize": "^6.37.3"
+    "dotenv": "^17.4.2",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "mysql2": "^3.22.5"
   },
   "devDependencies": {
-    "nodemon": "^3.1.3"
+    "nodemon": "^3.1.14"
   }
 }

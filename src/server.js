@@ -1,27 +1,24 @@
 require('dotenv').config();
-const app = require('./app');
-const sequelize = require('./config/database');
-const { initScheduler } = require('./cron/scheduler');
+const express = require('express');
+const path = require('path');
+const configViewEngine = require('./config/viewEngine');
+const webRouters = require('./routers/web');
+const connection = require('./config/database');
 
-const PORT = process.env.PORT || 3000;
+const app = express();
+const port = process.env.PORT || 3000;
+const hostname = process.env.HOST_NAME;
 
-const start = async () => {
-  try {
-    await sequelize.authenticate();
-    console.log('Database connection established.');
+//config req.body
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
-    await sequelize.sync({ alter: true });
-    console.log('Database synced.');
+// configure the view engine
+configViewEngine(app);
 
-    initScheduler();
+// khai báo các route
+app.use('/', webRouters);
 
-    app.listen(PORT, () => {
-      console.log(`Server running on http://localhost:${PORT}`);
-    });
-  } catch (error) {
-    console.error('Failed to start server:', error.message);
-    process.exit(1);
-  }
-};
-
-start();
+app.listen(port, hostname, () => {
+  console.log(`Example app listening on port ${port}`);
+});
