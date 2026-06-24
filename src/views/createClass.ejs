@@ -8,24 +8,22 @@
 </head>
 <body>
     <div class="topnav">
-        <a href="/">Home</a>
-        <a href="/create-user" class="active">Create Users</a>
+        <a href="/user">User</a>
+        <a href="/class">Class</a>
+        <a href="/score">Score</a>
+        <a href="/class/create" class="active">Create Classes</a>
     </div>
     <div class = "form-add-new"></div>
-        <form action="/create-user" method="post">
+        <form action="/class/create-class" method="post">
             <fieldset>
-                <legend>Add new users:</legend>
-                <div>
-                    <label for="email">Email:</label>
-                    <input type="email" id="email" name="email">
-                </div>
+                <legend>Add new classes:</legend>
                 <div>
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name">
                 </div>
                 <div>
-                    <label for="city">City:</label>
-                    <input type="text" id="city" name="city">
+                    <label for="description">Description:</label>
+                    <input type="text" id="description" name="description">
                 </div>
                 <input type="submit" value="Submit">
             </fieldset>

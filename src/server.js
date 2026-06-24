@@ -2,7 +2,9 @@ require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const configViewEngine = require('./config/viewEngine');
-const webRouters = require('./routers/web');
+const userRouters = require('./routers/userAPI');
+const classRouters = require('./routers/classAPI');
+const scoreRouters = require('./routers/scoreAPI')
 const connection = require('./config/database');
 
 const app = express();
@@ -17,7 +19,11 @@ app.use(express.json());
 configViewEngine(app);
 
 // khai báo các route
-app.use('/', webRouters);
+app.use('/user', userRouters);
+
+app.use('/class', classRouters);
+
+app.use('/score', scoreRouters)
 
 app.listen(port, hostname, () => {
   console.log(`Example app listening on port ${port}`);

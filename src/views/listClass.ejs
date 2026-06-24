@@ -34,41 +34,29 @@
 </style>
 <body>
     <div class="topnav">
-        <a class="active" href="/">Home</a>
-        <a href="/create">Create Users</a>
+        <a href="/user">User</a>
+        <a class="active" href="/class">Class</a>
+        <a href="/score">Score</a>
+        <a href="/class/create">Create Class</a>
     </div>
     <div class="table-container">
-        <div class="title">List Users</div>
+        <div class="title">List Classes</div>
         <table>
             <tr>
                 <th>ID</th>
-                <th>Email</th>
                 <th>Name</th>
-                <th>City</th>
+                <th>Description</th>
                 <th>Action</th>
             </tr>
-            <!-- <% for (let i = 0; i < dataUser.length; i++) { %>
-                <tr>
-                    <td><%= dataUser[i].id %></td>
-                    <td><%= dataUser[i].email %></td>
-                    <td><%= dataUser[i].name %></td>
-                    <td><%= dataUser[i].city %></td>
-                    <td>
-                        <button>Edit</button>
-                        <button>Delete</button>
-                    </td>
-                </tr>
-            <% } %> -->
 
-            <% dataUser.forEach(user => { %>
+            <% dataClass.forEach(classA => { %>
                 <tr>
-                    <td><%= user.id %></td>
-                    <td><%= user.email %></td>
-                    <td><%= user.name %></td>
-                    <td><%= user.city %></td>
+                    <td><%= classA.id %></td>
+                    <td><%= classA.name %></td>
+                    <td><%= classA.description %></td>
                     <td>
-                        <a href="/update/<%= user.id %>">Edit</a>
-                        <form action="/delete-user/<%= user.id %>" method="POST" style="display: inline;">
+                        <a href="/class/update/<%= classA.id %>">Edit</a>
+                        <form action="/class/delete/<%= classA.id %>" method="POST" style="display: inline;">
                             <button>Delete</button>
                         </form>
                     </td>

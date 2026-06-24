@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Create A User</title>
+</head>
+<body>
+    <div class="topnav">
+        <a href="/user">User</a>
+        <a href="/class">Class</a>
+        <a href="/score">Score</a>
+        <a href="/score/create" class="active">Create Classes</a>
+    </div>
+    <div class = "form-add-new"></div>
+        <form action="/score/create-score" method="POST">
+            <fieldset>
+                <legend>Add new score</legend>
+
+                <div>
+                    <label>User:</label>
+
+                    <select name="user_id" required>
+                        <option value="">-- Select User --</option>
+
+                        <% listUserId.forEach(function(user) { %>
+                            <option value="<%= user.id %>">
+                                <%= user.id %>
+                            </option>
+                        <% }) %>
+                    </select>
+                </div>
+                <div>
+                    <label>Class:</label>
+
+                    <select name="class_id" required>
+                        <option value="">-- Select Class --</option>
+
+                        <% listClassId.forEach(function(cls) { %>
+                            <option value="<%= cls.id %>">
+                                <%= cls.id %>
+                            </option>
+                        <% }) %>
+                    </select>
+                </div>
+                <div>
+                    <label>Score:</label>
+                    <input type="number" step="0.1" min="0" max="10" name="score" required>
+                </div>
+                <input type="submit" value="Submit">
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>

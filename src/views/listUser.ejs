@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Home Page</title>
+</head>
+<style>
+    .table-container {
+        padding: 15px 20px;
+    }
+
+    .title {
+        font-size: 25px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background-color: #CCC;
+    }
+</style>
+<body>
+    <div class="topnav">
+        <a class="active" href="/user">Home</a>
+        <a href="/class">Class</a>
+        <a href="/score">Score</a>
+        <a href="/user/create">Create Users</a>
+    </div>
+    <div class="table-container">
+        <div class="title">List Users</div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>City</th>
+                <th>Action</th>
+            </tr>
+            <!-- <% for (let i = 0; i < dataUser.length; i++) { %>
+                <tr>
+                    <td><%= dataUser[i].id %></td>
+                    <td><%= dataUser[i].email %></td>
+                    <td><%= dataUser[i].name %></td>
+                    <td><%= dataUser[i].city %></td>
+                    <td>
+                        <button>Edit</button>
+                        <button>Delete</button>
+                    </td>
+                </tr>
+            <% } %> -->
+
+            <% dataUser.forEach(user => { %>
+                <tr>
+                    <td><%= user.id %></td>
+                    <td><%= user.email %></td>
+                    <td><%= user.name %></td>
+                    <td><%= user.city %></td>
+                    <td>
+                        <a href="/user/update/<%= user.id %>">Edit</a>
+                        <form action="/user/delete/<%= user.id %>" method="POST" style="display: inline;">
+                            <button>Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            <% }); %>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,10 +1,10 @@
 const express = require('express');
-const { getHomePage, postCreateUser, getCreatePage, 
+const { getListUsers, postCreateUser, getCreatePage, 
     getUpdatePage, postUpdateUser, postDeleteUser, postHandleRemoveUser
- } = require('../controllers/homeController');
+ } = require('../controllers/userController');
 const router = express.Router();
 
-router.get('/', getHomePage);
+router.get('/', getListUsers);
 
 router.get('/create', getCreatePage);
 router.get('/update/:id', getUpdatePage);
@@ -12,7 +12,7 @@ router.get('/update/:id', getUpdatePage);
 router.post('/create-user', postCreateUser);
 router.post('/update-user', postUpdateUser);
 
-router.post('/delete-user/:id', postDeleteUser);
+router.post('/delete/:id', postDeleteUser);
 router.post('/delete-user', postHandleRemoveUser);
 
 module.exports = router;

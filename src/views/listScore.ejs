@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">  
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Home Page</title>
+</head>
+<style>
+    .table-container {
+        padding: 15px 20px;
+    }
+
+    .title {
+        font-size: 25px;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    tr:hover {
+        background-color: #CCC;
+    }
+</style>
+<body>
+    <div class="topnav">
+        <a href="/user">User</a>
+        <a href="/class">Class</a>
+        <a class="active" href="/score">Score</a>
+        <a href="/score/create">Create Score</a>
+    </div>
+    <div></div>
+        <form method="GET" action="/score">
+            <input type="number" name="user_id" placeholder="User ID">
+
+            <input type="number" name="class_id" placeholder="Class ID">
+            
+            <select name="sort">
+                <option value="">-- Sort Score --</option>
+                <option value="asc">Tăng dần</option>
+                <option value="desc">Giảm dần</option>
+            </select>
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+    </div>
+    <div class="table-container">
+        <div class="title">List Classes</div>
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>User Name</th>
+                <th>Class Name</th>
+                <th>Score</th>
+                <!-- <th>Action</th> -->
+            </tr>
+
+            <% dataScore.forEach(score => { %>
+                <tr>
+                    <td><%= score.id %></td>
+                    <td><%= score.user_name %></td>
+                    <td><%= score.class_name %></td>
+                    <td><%= score.score %></td>
+                </tr>
+            <% }); %>
+        </table>
+    </div>
+</body>
+</html>
